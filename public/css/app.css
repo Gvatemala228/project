@@ -16,7 +16,7 @@ nav {
     align-items: center;
 }
 
-.menu > .nav__btn {
+.menu .nav__btn {
     display: inline;
     list-style-type: none;
     margin-left: 30px;
