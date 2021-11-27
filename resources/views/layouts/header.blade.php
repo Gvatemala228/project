@@ -7,3 +7,6 @@
     <title>@yield('title_tag')</title>
 </head>
 <body>
+<header>
+
+</header>
