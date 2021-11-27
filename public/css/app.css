@@ -1,0 +1,35 @@
+* {
+    box-sizing: border-box;
+}
+body,
+header {
+    margin: 0;
+    padding: 0;
+}
+.container {
+    min-width: 320px;
+    margin: 0 auto;
+}
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu > .nav__btn {
+    display: inline;
+    list-style-type: none;
+    margin-left: 30px;
+}
+@media (min-width: 1024px) {
+    .container {
+        padding: 0 24px;
+        max-width: 1096px;
+    }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+    .container {
+        padding: 0 16px;
+        max-width: 768px;
+    }
+}
