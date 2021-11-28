@@ -14,5 +14,14 @@
     {{-- <div>
         Автор поста: {{$post->author}}
     </div> --}}
+
+    <div><a href="{{route('posts.edit',$post->id)}}">Редактировать</a></div>
+    <div>
+        <form method="post" action="{{route('posts.delete',$post->id)}}">
+        @csrf
+        @method('delete')
+            <input type="submit" value="Удалить">
+        </form>
+        </div>
 </div>
 @endsection
