@@ -2,6 +2,13 @@
 @section('title_tag')Все посты@endsection
 @section('content_section')
 <div class="container">
-    Страница всех постов
+    @foreach($posts as $post)
+    <div>
+    <a href={{route('posts.show',$post->id)}}>{{$post->title}}</a>
+    </div>
+    {{-- </div> --}}
+    {{-- {{$post->author}} --}}
+    {{-- </div> --}}
+    @endforeach
 </div>
 @endsection
