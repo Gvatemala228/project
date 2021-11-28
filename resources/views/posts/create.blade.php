@@ -2,7 +2,7 @@
 @section('title_tag')Создание поста@endsection
 @section('content_section')
 <div class="container">
-<form method="POST">
+<form method="POST" action="{{route('posts.store')}}">
     @csrf
     <div>
         <label>Название поста</label>
@@ -18,6 +18,7 @@
         <label>Изображение-миниатюра</label>
         <input name="image" type="text">
     </div>
+
     <br>
     <input type="submit"/>
 </form>

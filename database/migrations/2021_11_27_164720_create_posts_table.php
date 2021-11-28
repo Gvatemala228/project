@@ -18,6 +18,8 @@ class CreatePostsTable extends Migration
             $table->unsignedBigInteger('author_id');
             $table->string('title');
             $table->text('content');
+            $table->string('image');
+            $table->boolean('is_published')->default(1);
             $table->timestamps();
             $table->softDeletes();
         });

@@ -8,6 +8,7 @@ Route::get('/', 'HomeController')->name('home');
 Route::group(['namespace' => 'Posts'], function () {
     Route::get('/posts', 'IndexController')->name('posts.index');
     Route::get('/posts/create', 'CreateController')->name('posts.create');
+    Route::post('/posts/store', 'StoreController')->name('posts.store');
 });
 
 Auth::routes();
