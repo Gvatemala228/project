@@ -18,7 +18,7 @@
                 <li class="nav__btn"><a href={{route('home')}}>Главная</a></li>
                 <li class="nav__btn"><a href={{route('posts.index')}}>Посты</a></li>
                 <li class="nav__btn"><a>Категории</a></li>
-                @if(Auth::user())
+                @if(Auth::check())
                 <li class="nav__btn"><a>Профиль</a></li>
                 @else               
                 <li class="nav__btn"><a href="{{route('login')}}">Авторизация</a></li>
