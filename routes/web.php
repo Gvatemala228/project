@@ -10,6 +10,9 @@ Route::group(['namespace' => 'Posts'], function () {
     Route::get('/posts/create', 'CreateController')->name('posts.create');
     Route::post('/posts/store', 'StoreController')->name('posts.store');
     Route::get('/posts/{post}', 'ShowController')->name('posts.show');
+    Route::get('/posts/{post}/edit', 'EditController')->name('posts.edit');
+    Route::patch('/posts/{post}', 'UpdateController')->name('posts.update');
+    Route::delete('/posts/{post}', 'DestroyController')->name('posts.delete');
 });
 
 Auth::routes();
