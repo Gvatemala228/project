@@ -14,5 +14,7 @@ Route::group(['namespace' => 'Posts'], function () {
     Route::patch('/posts/{post}', 'UpdateController')->name('posts.update');
     Route::delete('/posts/{post}', 'DestroyController')->name('posts.delete');
 });
-
+Route::group(['namespace' => 'Profile'], function () {
+    Route::get('/profile', 'IndexController')->name('profile.index')->middleware('auth');
+});
 Auth::routes();

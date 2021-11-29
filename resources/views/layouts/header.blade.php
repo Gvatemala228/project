@@ -15,11 +15,11 @@
         <nav>
             <a><h1>Блог</h1></a>
             <ul class="menu">
-                <li class="nav__btn"><a href={{route('home')}}>Главная</a></li>
-                <li class="nav__btn"><a href={{route('posts.index')}}>Посты</a></li>
+                <li class="nav__btn"><a href="{{route('home')}}">Главная</a></li>
+                <li class="nav__btn"><a href="{{route('posts.index')}}">Посты</a></li>
                 <li class="nav__btn"><a>Категории</a></li>
                 @if(Auth::check())
-                <li class="nav__btn"><a>Профиль</a></li>
+                <li class="nav__btn"><a href="{{route('profile.index')}}">Профиль</a></li>
                 @else               
                 <li class="nav__btn"><a href="{{route('login')}}">Авторизация</a></li>
                 <li class="nav__btn"><a href="{{route('register')}}">Регистрация</a></li>
