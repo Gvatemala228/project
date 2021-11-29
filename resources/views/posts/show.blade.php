@@ -17,7 +17,7 @@
     {{-- <div>
         Автор поста: {{$post->author}}
     </div> --}}
-
+    @if(Auth::user()->id == $post->author->id)
     <div><a href="{{route('posts.edit',$post->id)}}">Редактировать</a></div>
     <div>
         <form method="post" action="{{route('posts.delete',$post->id)}}">
@@ -26,5 +26,6 @@
             <input type="submit" value="Удалить">
         </form>
         </div>
+    @endif
 </div>
 @endsection
