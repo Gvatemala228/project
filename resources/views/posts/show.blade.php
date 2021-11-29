@@ -11,6 +11,9 @@
     <div>
         Картинка поста: {{$post->image}}
     </div>
+    <div>
+    Автор поста: {{$post->author->name}}
+    </div>
     {{-- <div>
         Автор поста: {{$post->author}}
     </div> --}}
