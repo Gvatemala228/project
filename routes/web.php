@@ -16,5 +16,6 @@ Route::group(['namespace' => 'Posts'], function () {
 });
 Route::group(['namespace' => 'Profile'], function () {
     Route::get('/profile', 'IndexController')->name('profile.index')->middleware('auth');
+    Route::get('/profile/posts', 'PostsController')->name('profile.posts')->middleware('auth');
 });
 Auth::routes();
