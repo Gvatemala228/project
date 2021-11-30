@@ -14,21 +14,42 @@
             <label for="email">Email </label>
             <input type="email" id="email" name="email" value="{{$user->email}}"/>
         </div>
+    </form>
+    @if(session()->has('message'))
+        {{session()->get('message')}}
+    @endif
+    @if(session()->has('error'))
+        {{session()->get('error')}}
+    @endif
+    @if($errors->any())
+    <ul>
+    @foreach($errors->all() as $error)
+        <li>{{$error}}</li>
+    @endforeach
+    </ul>
+    @endif
+    <form action="{{route('profile.updatePassword', $user->id)}}" method="post">
+        @csrf
+        @method('put')
         <br>
         <h2>Сменить пароль</h2>
         <div>
             <label for="old_password">Старый пароль</label>
-            <input type="text" id="old_password" name="old_password"/>
+            <input type="password" id="old_password" name="old_password"/>
         </div>
         <br>
         <div>
-            <label for="new_password">Новый пароль</label>
-            <input type="password" id="new_password" name="new_password"/>
+            <label for="password">Новый пароль</label>
+            <input type="password" id="password" name="password"/>
         </div>
         <br>
         <div>
-            <label for="confirm_password">Повторите пароль</label>
-            <input type="password" id="confirm_password" name="confirm_password"/>
+            <label for="password_confirmation">Повторите пароль</label>
+            <input type="password" id="password_confirmation" name="password_confirmation"/>
+        </div>
+        <br>
+        <div>
+            <input type="submit" value="Изменить" />
         </div>
     </form>
 </div>

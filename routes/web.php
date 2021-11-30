@@ -18,6 +18,7 @@ Route::group(['namespace' => 'Profile'], function () {
     Route::get('/profile', 'IndexController')->name('profile.index')->middleware('auth');
     Route::get('/profile/posts', 'PostsController')->name('profile.posts')->middleware('auth');
     Route::get('/profile/edit', 'EditController')->name('profile.edit')->middleware('auth');
+    Route::put('/profile/change_password/{id}', 'ChangePasswordController')->name('profile.updatePassword')->middleware('auth');
     Route::get('/profile/{id}', 'ShowController')->name('profile.show');
 });
 Auth::routes();
