@@ -17,14 +17,16 @@
     {{-- <div>
         Автор поста: {{$post->author}}
     </div> --}}
+    <br>
     @if(Auth::check())
     @if(Auth::user()->id == $post->author->id)
-    <div><a href="{{route('posts.edit',$post->id)}}">Редактировать</a></div>
+    <div><a href="{{route('posts.edit',$post->id)}}" class="btn btn-dark">Редактировать</a></div>
+    <br>
     <div>
         <form method="post" action="{{route('posts.delete',$post->id)}}">
         @csrf
         @method('delete')
-            <input type="submit" value="Удалить">
+            <input class="btn btn-danger" type="submit" value="Удалить">
         </form>
         </div>
     @endif
