@@ -21,7 +21,7 @@ class ShowController extends Controller
         if ($user = User::find($id)) {
             return view('profile.show', compact('user'));
         } else {
-            return "Такого пользователя не существует";
+            return "Пользователя $id не существует!";
         }
     }
 }
