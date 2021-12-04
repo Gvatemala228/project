@@ -16,9 +16,10 @@ Route::group(['namespace' => 'Posts'], function () {
 });
 Route::group(['namespace' => 'Profile'], function () {
     Route::get('/profile', 'IndexController')->name('profile.index')->middleware('auth');
-    Route::get('/profile/posts', 'PostsController')->name('profile.posts')->middleware('auth');
     Route::get('/profile/edit', 'EditController')->name('profile.edit')->middleware('auth');
     Route::put('/profile/edit/change_password/{id}', 'ChangePasswordController')->name('profile.updatePassword')->middleware('auth');
+    Route::get('/profile/posts', 'PostsController')->name('profile.posts')->middleware('auth');
     Route::get('/profile/{id}', 'ShowController')->name('profile.show');
+    Route::get('/profile/{id}/posts', 'UserPostsController')->name('profile.userPosts');
 });
 Auth::routes();

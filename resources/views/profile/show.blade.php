@@ -7,7 +7,7 @@
     <div>Имя: {{$user->name}}</div>
     {{-- <div>Фамилия: {{$user->surname}}</div> --}}
     <div>Email: {{$user->email}}</div>
-    {{-- <div><a href="{{route('profile.posts')}}">Посты пользователя</a></div> --}}
+    <div><a href="{{route('profile.userPosts', $user->id)}}">Посты</a></div>
     <br>
 </div>
 @endsection
