@@ -18,6 +18,6 @@ class UserPostsController extends Controller
         }
         $user = User::find($id);
         $posts = $user->posts;
-        return view('profile.userPosts', compact('posts'));
+        return view('profile.userPosts', compact('posts', 'id'));
     }
 }
