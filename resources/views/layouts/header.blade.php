@@ -12,7 +12,6 @@
 <div class="wrapper">
 <header>
 <div class="container">
-    
         {{-- <nav>
             <a><h1>Блог</h1></a>
             <ul class="menu">
