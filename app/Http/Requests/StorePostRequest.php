@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use App\Rules\Check;
 
 class StorePostRequest extends FormRequest
 {
@@ -25,6 +26,7 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title' => 'required|string',
+            'category_id' => ['required', new Check],
             'content' => 'required',
             'image' => 'required|file',
         ];
@@ -34,6 +36,7 @@ class StorePostRequest extends FormRequest
     {
         return [
             'title.required' => 'Это поле обязательно к заполнению',
+            'category_id.required' => 'Это поле обязательно к заполнению',
             'content.required' => 'Это поле обязательно к заполнению',
             'image.required' => 'Это поле обязательно к заполнению',
         ];
