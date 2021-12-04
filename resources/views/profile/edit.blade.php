@@ -3,7 +3,7 @@
 @section('content_section')
 <div class="container">
     <h1>Редактированние данных профиля</h1>
-    <form action="" method="post">
+    <form action="{{route('profile.update')}}" method="post">
         @csrf
         @method('patch')
         <div class="mb-3">
@@ -11,8 +11,15 @@
             <input type="text" class="form-control" id="name" name="name" value="{{$user->name}}"/>
         </div>
         <div class="mb-3">
+            <label for="surname" class="form-label">Фамилия</label>
+            <input type="text" class="form-control" id="surname" name="surname" value="{{$user->surname}}"/>
+        </div>
+        <div class="mb-3">
             <label for="email" class="form-label">Email</label>
             <input type="email" class="form-control" id="email" name="email" value="{{$user->email}}"/>
+        </div>
+        <div class="mb-3">
+            <input type="submit" class="btn btn-primary" value="Сохранить"/>
         </div>
     </form>
     @if(session()->has('message'))
