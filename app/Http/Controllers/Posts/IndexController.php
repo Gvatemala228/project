@@ -12,7 +12,8 @@ class IndexController extends Controller
 {
     public function __invoke()
     {
-        $posts = Post::all()->reverse();
+        $posts = Post::latest()->paginate(6);
+        $posts->withPath('posts');
         return view('posts.index', compact('posts'));
     }
 }
