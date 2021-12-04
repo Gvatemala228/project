@@ -6,7 +6,7 @@
     <h1>Форма для создания поста</h1>
 </div>
 <br>
-<form method="POST" action="{{route('posts.store')}}">
+<form method="POST" action="{{route('posts.store')}}" enctype="multipart/form-data">
     @csrf
     <div>
         <label class="form-label" for="title">Название поста</label>
@@ -20,7 +20,7 @@
     <br>
     <div>
         <label class="form-label" for="content">Текст поста</label>
-    <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content">{{old('content')}}</textarea>
+        <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content">{{old('content')}}</textarea>
         @error('content')
         <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>
@@ -30,14 +30,13 @@
     <br>
     <div>
         <label class="form-label" for="image">Изображение-миниатюра</label>
-    <input class="form-control @error('image') is-invalid @enderror" type="text" value="{{old('image')}}" name="image" id="image">
+        <input class="form-control @error('image') is-invalid @enderror" type="file" value="{{old('image')}}" name="image" id="image">
         @error('image')
         <span class="invalid-feedback" role="alert">
         <strong>{{ $message }}</strong>
         </span>
         @enderror
     </div>
-
     <br>
     <input type="submit" class="btn btn-success" value="Добавить"/>
 </form>

@@ -13,7 +13,7 @@ class StorePostRequest extends FormRequest
      */
     public function authorize()
     {
-        return true;
+        return auth()->check();
     }
 
     /**
@@ -24,9 +24,9 @@ class StorePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required',
+            'title' => 'required|string',
             'content' => 'required',
-            'image' => 'required'
+            'image' => 'required|file',
         ];
     }
 
