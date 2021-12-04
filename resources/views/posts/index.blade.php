@@ -2,6 +2,7 @@
 @section('title_tag')Все посты@endsection
 @section('content_section')
 <div class="container">
+    <div class="posts-container">
     <div class="card-group">
     @foreach($posts as $post)
     <div class="col-sm-4 mb-3">
@@ -15,7 +16,8 @@
     </div>
 </div>
     @endforeach
-    <div>
+</div>
+    <div class="px-3">
     {{ $posts->links() }}
     </div>
 </div>
