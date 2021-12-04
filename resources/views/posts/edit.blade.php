@@ -2,26 +2,26 @@
 @section('title_tag')Редактирование поста: {{$post->title}}@endsection
 @section('content_section')
 <div class="container">
-<form method="post" action="{{route('posts.update',$post->id)}}">
+<form method="post" action="{{route('posts.update',$post->id)}}" enctype="multipart/form-data">
     @csrf
     @method('patch')
     <div>
-        <label>Название поста</label>
-    <input name="title" value="{{$post->title}}" type="text">
+        <label for="title" class="form-label">Название поста</label>
+        <input class="form-control" name="title" id="title" value="{{$post->title}}" type="text">
     </div>
     <br>
     <div>
-        <label>Текст поста</label>
-        <textarea name="content">{{$post->content}}</textarea>
+        <label for="content" class="form-label">Текст поста</label>
+        <textarea class="form-control" name="content" id="content">{{$post->content}}</textarea>
     </div>
     <br>
     <div>
-        <label>Изображение-миниатюра</label>
-    <input name="image" value="{{$post->image}}" type="text">
+    <label for="image" class="form-label">Изображение-миниатюра</label>
+    <input class="form-control" name="image" id="image" value="{{$post->image}}" type="file">
     </div>
 
     <br>
-    <input type="submit"/>
+    <input class="btn btn-success" type="submit" value="Изменить"/>
 </form>
 </div>
 @endsection
