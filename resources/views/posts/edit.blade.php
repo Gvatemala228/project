@@ -17,7 +17,7 @@
     <br>
     <div>
     <label for="image" class="form-label">Изображение-миниатюра</label>
-    <input class="form-control" name="image" id="image" value="{{$post->image}}" type="file">
+    <input class="form-control" name="image" id="image" type="file">
     </div>
 
     <br>
