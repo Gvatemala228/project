@@ -6,6 +6,9 @@
         Название поста: {{$post->title}}
     </div>
     <div>
+        Категория: {{$post->category->title}}
+    </div>
+    <div>
         Текст поста: {{$post->content}}
     </div>
     <div>
