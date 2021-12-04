@@ -10,17 +10,32 @@
     @csrf
     <div>
         <label class="form-label" for="title">Название поста</label>
-        <input class="form-control" type="text" name="title" id="title">
+        <input class="form-control @error('title') is-invalid @enderror" type="text" name="title" id="title">
+        @error('title')
+        <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+        </span>
+        @enderror
     </div>
     <br>
     <div>
         <label class="form-label" for="content">Текст поста</label>
-        <textarea class="form-control" name="content" id="content"></textarea>
+        <textarea class="form-control @error('content') is-invalid @enderror" name="content" id="content"></textarea>
+        @error('content')
+        <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+        </span>
+        @enderror
     </div>
     <br>
     <div>
         <label class="form-label" for="image">Изображение-миниатюра</label>
-        <input class="form-control" type="text" name="image" id="image">
+        <input class="form-control @error('image') is-invalid @enderror" type="text" name="image" id="image">
+        @error('image')
+        <span class="invalid-feedback" role="alert">
+        <strong>{{ $message }}</strong>
+        </span>
+        @enderror
     </div>
 
     <br>
