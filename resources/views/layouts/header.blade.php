@@ -32,7 +32,7 @@
                   </a>
                   <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     @foreach(App\Models\Category::all() as $category)
-                  <a class="dropdown-item" href="#">{{$category->title}}</a>
+                  <a class="dropdown-item" href="{{route('posts.category', $category->id)}}">{{$category->title}}</a>
                     @endforeach
                   </div>
                 </li>
