@@ -9,7 +9,7 @@
         Категория: {{$post->category->title}}
     </div>
     <div>
-        Текст поста: {{$post->content}}
+        Текст поста: {!!$post->content!!}
     </div>
     <div>
         Картинка поста: {{$post->image}}
