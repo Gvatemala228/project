@@ -2,7 +2,7 @@
 
 @section('content_section')
 <div class="container">
-    <div class="row justify-content-center my-5">
+    <div class="row justify-content-center py-5">
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">Регистрация</div>
