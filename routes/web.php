@@ -28,4 +28,4 @@ Route::group(['namespace' => 'Profile'], function () {
     Route::get('/profile/{id}', 'ShowController')->name('profile.show');
     Route::get('/profile/{id}/posts', 'UserPostsController')->name('profile.userPosts');
 });
-Auth::routes();
+Auth::routes(['verify' => true]);
