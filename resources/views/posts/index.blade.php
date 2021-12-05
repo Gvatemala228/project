@@ -2,6 +2,9 @@
 @section('title_tag')Все посты@endsection
 @section('content_section')
 <div class="container">
+    <div class="px-3">
+        <h1>Все посты на сайте</h1>
+    </div>
     <div class="posts-container">
     <div class="card-group">
     @foreach($posts as $post)
