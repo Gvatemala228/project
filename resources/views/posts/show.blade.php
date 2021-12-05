@@ -8,7 +8,7 @@
     <div>
         Категория: {{$post->category->title}}
     </div>
-    <div>
+    <div class="post-content">
         Текст поста: {!!$post->content!!}
     </div>
     <div>
