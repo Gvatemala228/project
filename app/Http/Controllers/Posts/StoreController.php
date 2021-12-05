@@ -15,7 +15,7 @@ class StoreController extends Controller
     {
         $post = $request->validated();
         $post['image'] = Storage::disk('public')->put('images', $post['image']);
-        Post::create($post + ['author_id' => Auth::user()->id]);
-        return redirect()->route('home'); //Сделать переадресацию на пост
+        $post = Post::create($post + ['author_id' => Auth::user()->id]);
+        return redirect()->route('posts.show', $post->id);
     }
 }
