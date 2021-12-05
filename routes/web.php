@@ -11,7 +11,7 @@ Route::group(['namespace' => 'Posts'], function () {
     Route::get('/posts', 'IndexController')->name('posts.index');
     Route::get('/posts/search', 'SearchController')->name('posts.search');
     Route::get('/posts/category/{id}', 'PostsCategoryController')->name('posts.category');
-    Route::get('/posts/create', 'CreateController')->name('posts.create')->middleware('auth');
+    Route::get('/posts/create', 'CreateController')->name('posts.create')->middleware('verified');
     Route::post('/images', 'UploadImageController');
     Route::post('/posts/store', 'StoreController')->name('posts.store');
     Route::get('/posts/{post}', 'ShowController')->name('posts.show');
