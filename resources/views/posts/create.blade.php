@@ -61,12 +61,47 @@
 @section('body_script')
 <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
 <script>
-  tinymce.init({
+tinymce.init({
     selector: 'textarea',
-    plugins: 'code table lists',
-    toolbar: 'undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist',
-    language: 'ru'
-  });
+    height: 500,
+    plugins: 'code table lists image media imagetools fullscreen',
+    toolbar: 'insertfile undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | image',
+    language: 'ru',
+    images_upload_url: '/images',
+    image_title: true,
+     images_upload_handler: function (blobInfo, success, failure) {
+        var xhr, formData;
+        xhr = new XMLHttpRequest();
+        xhr.withCredentials = false;
+        xhr.open('POST', '/images');
+        var token = '{{ csrf_token() }}';
+        xhr.setRequestHeader("X-CSRF-Token", token);
+        xhr.onload = function() {
+        var json;
+        if (xhr.status != 200) {
+        failure('HTTP ошибка: ' + xhr.status);
+        return;
+        }
+        json = JSON.parse(xhr.responseText);
+
+        if (!json || typeof json.location != 'string') {
+            failure('Invalid JSON: ' + json.responseText);
+            console.log(json);
+            return;
+        }
+            success(json.location);
+        };
+        formData = new FormData();
+        formData.append('file', blobInfo.blob(), blobInfo.filename());
+        xhr.send(formData);
+        }  
+    });
+tinymce.activeEditor.uploadImages(function(success) {
+    $.post('/images', tinymce.activeEditor.getContent()).done(function() {
+        console.log("Uploaded images and posted content as an ajax request.");
+    });
+});
+  
 </script>
 @endsection
 @endsection

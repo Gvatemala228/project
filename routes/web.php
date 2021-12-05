@@ -1,13 +1,16 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Storage;
 
 Route::get('/', 'HomeController')->name('home');
 
 Route::group(['namespace' => 'Posts'], function () {
     Route::get('/posts', 'IndexController')->name('posts.index');
     Route::get('/posts/create', 'CreateController')->name('posts.create')->middleware('auth');
+    Route::post('/images', 'UploadImageController');
     Route::post('/posts/store', 'StoreController')->name('posts.store');
     Route::get('/posts/{post}', 'ShowController')->name('posts.show');
     Route::get('/posts/{post}/edit', 'EditController')->name('posts.edit');
