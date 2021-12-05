@@ -1,4 +1,10 @@
-.preview-image{
+.preview-image {
     height: 225px;
     width: 100%;
 }
+
+.post-content img {
+    max-width: 100%;
+    height: 100%;
+}
+
