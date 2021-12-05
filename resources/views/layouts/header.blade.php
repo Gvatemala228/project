@@ -12,20 +12,6 @@
 <div class="wrapper">
 <header>
 <div class="container">
-        {{-- <nav>
-            <a><h1>Блог</h1></a>
-            <ul class="menu">
-                <li class="nav__btn"><a href="{{route('home')}}">Главная</a></li>
-                <li class="nav__btn"><a href="{{route('posts.index')}}">Посты</a></li>
-                <li class="nav__btn"><a>Категории</a></li>
-                @if(Auth::check())
-                <li class="nav__btn"><a href="{{route('profile.index')}}">Профиль</a></li>
-                @else               
-                <li class="nav__btn"><a href="{{route('login')}}">Авторизация</a></li>
-                <li class="nav__btn"><a href="{{route('register')}}">Регистрация</a></li>
-                @endif                
-            </ul>
-        </nav> --}}
         <nav class="navbar navbar-expand-lg navbar-light bg-light">
             <a class="navbar-brand" href="{{route('home')}}">Блог</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -63,10 +49,10 @@
                 </li>
                 @endif
               </ul>
-              <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                  </form>
+            <form class="form-inline my-2 my-lg-0" action="{{route('posts.search')}}">
+                    <input class="form-control mr-sm-2" type="search" name="query" placeholder="Введите запрос" aria-label="Search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Поиск</button>
+              </form>
             </div>
           </nav>    
     

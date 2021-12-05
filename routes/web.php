@@ -9,6 +9,7 @@ Route::get('/', 'HomeController')->name('home');
 
 Route::group(['namespace' => 'Posts'], function () {
     Route::get('/posts', 'IndexController')->name('posts.index');
+    Route::get('/posts/search', 'SearchController')->name('posts.search');
     Route::get('/posts/create', 'CreateController')->name('posts.create')->middleware('auth');
     Route::post('/images', 'UploadImageController');
     Route::post('/posts/store', 'StoreController')->name('posts.store');
