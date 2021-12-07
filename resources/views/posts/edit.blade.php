@@ -66,6 +66,8 @@ tinymce.init({
     language: 'ru',
     images_upload_url: '/images',
     image_title: true,
+    relative_urls : false,
+    remove_script_host : false,
      images_upload_handler: function (blobInfo, success, failure) {
         var xhr, formData;
         xhr = new XMLHttpRequest();
