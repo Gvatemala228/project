@@ -3,16 +3,13 @@
 @section('content_section')
 <div class="container">
     <div>
-        Название поста: {{$post->title}}
+        <h1 class="post-title">{{$post->title}}</h1>
     </div>
     <div>
         Категория: {{$post->category->title}}
     </div>
-    <div class="post-content">
-        Текст поста: {!!$post->content!!}
-    </div>
     <div>
-    Автор поста: <a href=@if(Auth::check()) @if(Auth::user()->id==$post->author_id) {{route('profile.index')}} @else {{route('profile.show',$post->author_id)}} @endif @else {{route('profile.show',$post->author_id)}} @endif> {{$post->author->login}}</a>
+        Автор поста: <a href=@if(Auth::check()) @if(Auth::user()->id==$post->author_id) {{route('profile.index')}} @else {{route('profile.show',$post->author_id)}} @endif @else {{route('profile.show',$post->author_id)}} @endif> {{$post->author->login}}</a>
     </div>
     <br>
     @if(Auth::check())
@@ -28,5 +25,9 @@
         </div>
     @endif
     @endif
+    <br>
+    <div class="post-content">
+        Текст поста: {!!$post->content!!}
+    </div>
 </div>
 @endsection
