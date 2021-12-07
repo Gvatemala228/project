@@ -8,3 +8,12 @@
     height: 100%;
 }
 
+.post-content p,
+.post-content p > span {
+    font-size: 18px !important;
+}
+.post-content {
+    max-width: 100%;
+    height: 100%;
+}
+
