@@ -12,6 +12,7 @@ class Service
     {
         $post['image'] = Storage::disk('public')->put('images', $post['image']);
         $post = Post::create($post + ['author_id' => Auth::user()->id]);
+        return $post->id;
     }
     public function update()
     {
