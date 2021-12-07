@@ -9,13 +9,12 @@ use Illuminate\Http\Request;
 use App\Http\Requests\StorePostRequest;
 use Illuminate\Support\Facades\Storage;
 
-class StoreController extends Controller
+class StoreController extends BaseController
 {
     public function __invoke(StorePostRequest $request)
     {
         $post = $request->validated();
-        $post['image'] = Storage::disk('public')->put('images', $post['image']);
-        $post = Post::create($post + ['author_id' => Auth::user()->id]);
+        $this->service->store($post);
         return redirect()->route('posts.show', $post->id);
     }
 }
