@@ -7,7 +7,7 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
-class UpdateController extends Controller
+class UpdateController extends BaseController
 {
     public function __invoke(Post $post)
     {
@@ -16,12 +16,7 @@ class UpdateController extends Controller
             'content' => 'required',
             'image' => 'nullable|image'
         ]);
-        if (isset($data['image'])) {
-            $data['image'] = Storage::disk('public')->put('images', $data['image']);
-        } else {
-            $data['image'] = $post['image'];
-        }
-        $post->update($data);
+        $this->service->update($post, $data);
         return redirect()->route('posts.show', $post->id);
     }
 }
