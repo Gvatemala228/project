@@ -12,9 +12,6 @@
         Текст поста: {!!$post->content!!}
     </div>
     <div>
-        Картинка поста: {{$post->image}}
-    </div>
-    <div>
     Автор поста: <a href=@if(Auth::check()) @if(Auth::user()->id==$post->author_id) {{route('profile.index')}} @else {{route('profile.show',$post->author_id)}} @endif @else {{route('profile.show',$post->author_id)}} @endif> {{$post->author->name}}</a>
     </div>
     <br>
