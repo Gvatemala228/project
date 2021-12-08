@@ -14,7 +14,7 @@ class SearchController extends Controller
     {
         $query = $request->input('query');
         if (!$query) {
-            return redirect()->route('home');
+            return redirect()->back();
         }
         $postsByTitle = Post::where('title', 'LIKE', "%{$query}%")->orderBy('title')->get();
         $postsByContent = Post::where('content', 'LIKE', "%{$query}%")->orderBy('title')->get();
