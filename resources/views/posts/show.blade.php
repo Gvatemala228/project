@@ -29,5 +29,64 @@
     <div class="post-content">
         Текст поста: {!!$post->content!!}
     </div>
+    <div>
+        <div class="comments">
+            <h3 class="title-comments">Комментарии ({{count($post->comments)}})</h3>
+            <div>
+            <h5>Оставить комментарий</h5>
+            <form method="post" action="{{route('comments.store', $post->id)}}">
+                @csrf
+                <textarea class="form-control w-50" name="comment"></textarea>
+                <input type="submit" class="btn btn-primary my-3" value="Добавить">
+            </form>
+            <ul class="media-list">
+              <!-- Комментарий (уровень 1) -->
+              @foreach($post->comments as $comment)
+              <li class="media my-3">
+                <div class="media-body">
+                  <div class="media-heading">
+                  <div class="author">{{$comment->author->login}}</div>
+                      <div class="metadata">
+                        <span class="date">{{$comment->created_at->format('d.m.Y H:m:s')}}</span>
+                      </div>
+                    </div>
+                <div class="media-text text-justify">{{$comment->comment}}</div>
+                    <div class="footer-comment">
+                      <span class="vote plus" title="Нравится">
+                        <i class="fa fa-thumbs-up"></i>
+                      </span>
+                      <span class="rating">+1</span>
+                      <span class="vote minus" title="Не нравится">
+                        <i class="fa fa-thumbs-down"></i>
+                      </span>
+                      <span class="devide">|</span>
+                      <span class="comment-reply">
+                        <a href="#" class="reply">ответить</a>
+                      </span>
+                    </div>
+                    <!-- Вложенный медиа-компонент (уровень 2) -->
+                    {{-- <div class="media">
+                      <div class="media-left">...</div>
+                      <div class="media-body">
+                        <div class="media-heading">...</div>
+                        <div class="media-text text-justify">...</div>
+                        <div class="footer-comment">...</div>
+                        <!-- Вложенный медиа-компонент (уровень 3) -->
+                        <div class="media">
+                          ...                
+                        </div><!-- Конец вложенного комментария (уровень 3) -->
+                      </div>
+                    </div><!-- Конец вложенного комментария (уровень 2) -->
+                    <!-- Ещё один вложенный медиа-компонент (уровень 2) -->
+                    <div class="media">
+                      ...
+                    </div><!-- Конец ещё одного вложенного комментария (уровень 2) --> --}}
+                  </div>
+              </li><!-- Конец комментария (уровень 1) -->
+              @endforeach
+            </ul>
+          </div>
+        </div>
+    </div>
 </div>
 @endsection

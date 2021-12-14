@@ -18,6 +18,9 @@ Route::group(['namespace' => 'Posts'], function () {
     Route::get('/posts/{post}/edit', 'EditController')->name('posts.edit');
     Route::patch('/posts/{post}', 'UpdateController')->name('posts.update');
     Route::delete('/posts/{post}', 'DestroyController')->name('posts.delete');
+    Route::group(['namespace' => 'Comments'], function () {
+        Route::post('/posts/{id}/comments', 'StoreController')->name('comments.store');
+    });
 });
 Route::group(['namespace' => 'Profile'], function () {
     Route::get('/profile', 'IndexController')->name('profile.index')->middleware('auth');
