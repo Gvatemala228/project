@@ -51,19 +51,6 @@
                       </div>
                     </div>
                 <div class="media-text text-justify">{{$comment->comment}}</div>
-                    <div class="footer-comment">
-                      <span class="vote plus" title="Нравится">
-                        <i class="fa fa-thumbs-up"></i>
-                      </span>
-                      <span class="rating">+1</span>
-                      <span class="vote minus" title="Не нравится">
-                        <i class="fa fa-thumbs-down"></i>
-                      </span>
-                      <span class="devide">|</span>
-                      <span class="comment-reply">
-                        <a href="#" class="reply">ответить</a>
-                      </span>
-                    </div>
                     <!-- Вложенный медиа-компонент (уровень 2) -->
                     {{-- <div class="media">
                       <div class="media-left">...</div>
