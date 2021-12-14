@@ -10,7 +10,10 @@ class ShowController extends Controller
 {
     public function __invoke($id)
     {
-        $post = Post::find($id);
-        return view('posts.show', compact('post'));
+        if ($post = Post::find($id)) {
+            return view('posts.show', compact('post'));
+        } else {
+            return abort(404);
+        }
     }
 }
