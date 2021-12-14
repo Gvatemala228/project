@@ -45,7 +45,7 @@
               <li class="media my-3">
                 <div class="media-body">
                   <div class="media-heading">
-                  <div class="author">{{$comment->author->login}}</div>
+                  <div class="author"><a href="{{route('profile.show', $comment->author->id)}}">{{$comment->author->login}}</a></div>
                       <div class="metadata">
                         <span class="date">{{$comment->created_at->format('d.m.Y H:m:s')}}</span>
                       </div>
