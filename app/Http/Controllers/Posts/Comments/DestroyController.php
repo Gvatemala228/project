@@ -8,10 +8,9 @@ use App\Http\Controllers\Controller;
 
 class DestroyController extends Controller
 {
-    public function __invoke(Comment $comment)
+    public function __invoke($id)
     {
-        dd($comment);
-        // $comment = Comment::find($comment);
+        $comment = Comment::find($id);
         $comment->delete();
         return redirect()->back();
     }
