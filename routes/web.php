@@ -19,7 +19,8 @@ Route::group(['namespace' => 'Posts'], function () {
     Route::patch('/posts/{post}', 'UpdateController')->name('posts.update');
     Route::delete('/posts/{post}', 'DestroyController')->name('posts.delete');
     Route::group(['namespace' => 'Comments'], function () {
-        Route::post('/posts/{id}/comments', 'StoreController')->name('comments.store');
+        Route::post('/posts/{post}/comments', 'StoreController')->name('comments.store')->middleware('auth');
+        Route::delete('/posts/{post}/comments', 'DestroyController')->name('comments.delete')->middleware('auth');
     });
 });
 Route::group(['namespace' => 'Profile'], function () {
