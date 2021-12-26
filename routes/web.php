@@ -20,7 +20,7 @@ Route::group(['namespace' => 'Posts'], function () {
     Route::delete('/posts/{post}', 'DestroyController')->name('posts.delete');
     Route::group(['namespace' => 'Comments'], function () {
         Route::post('/posts/{post}/comments', 'StoreController')->name('comments.store')->middleware('auth');
-        Route::delete('/posts/{post}/comments', 'DestroyController')->name('comments.delete')->middleware('auth');
+        Route::delete('/posts/comments/{id}', 'DestroyController')->name('comments.delete')->middleware('auth');
     });
 });
 Route::group(['namespace' => 'Profile'], function () {
