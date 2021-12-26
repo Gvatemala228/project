@@ -12,6 +12,6 @@ class DestroyController extends Controller
     {
         $comment = Comment::find($id);
         $comment->delete();
-        return redirect()->back();
+        return response()->json(['response' => 'Успешное удаление комментария']);
     }
 }

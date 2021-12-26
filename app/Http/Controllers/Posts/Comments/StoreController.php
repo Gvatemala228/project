@@ -13,7 +13,10 @@ class StoreController extends Controller
     public function __invoke(StoreCommentRequest $request)
     {
         $comment = $request->validated();
-        Comment::create($comment);
-        return redirect()->back();
+        $comment = Comment::create($comment);
+        $comment->author;
+        $commentResponse = collect($comment);
+        $commentResponse->put('created_at', $comment->created_at->format('d.m.Y H:m:s'));
+        return $commentResponse;
     }
 }

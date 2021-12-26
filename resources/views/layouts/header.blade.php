@@ -7,6 +7,7 @@
     <title>@yield('title_tag')</title>
     <link rel="stylesheet" href="{{url('css/app.css')}}" />
     <link rel="stylesheet" href="{{url('css/style.css')}}">
+    @yield('head_script')
 </head>
 <body>
 <div class="wrapper">
