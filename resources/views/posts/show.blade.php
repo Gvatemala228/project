@@ -100,8 +100,8 @@
             <h5>Оставить комментарий</h5>
             <form method="post" id="addCommentForm" action="{{route('comments.store', $post->id)}}">
                 @csrf
-                <textarea class="form-control w-50" name="comment"></textarea>
-                <input type="submit" class="btn btn-primary my-3" id="submitComment" value="Добавить">
+                <textarea class="form-control w-50 @guest h-100 @endguest" name="comment" @guest readonly @endguest>@guest Только для авторизированных @endguest</textarea>
+                @auth<input type="submit" class="btn btn-primary my-3" id="submitComment" value="Добавить">@endauth
             </form>
             <ul class="media-list">
               <!-- Комментарий (уровень 1) -->
