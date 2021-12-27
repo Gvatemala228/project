@@ -25,7 +25,7 @@ class UpdatePostRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => 'required|string',
+            'title' => 'required|string|max:100',
             'category_id' => ['required', new Check],
             'content' => 'required',
             'image' => 'image',
@@ -36,6 +36,7 @@ class UpdatePostRequest extends FormRequest
     {
         return [
             'title.required' => 'Это поле обязательно к заполнению',
+            'title.max' => 'В названии может быть не более 100 символов',
             'category_id.required' => 'Это поле обязательно к заполнению',
             'content.required' => 'Это поле обязательно к заполнению',
             'image.required' => 'Это поле обязательно к заполнению',
