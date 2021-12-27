@@ -27,7 +27,7 @@ class Check implements Rule
      */
     public function passes($attribute, $value)
     {
-        return $value <= Category::count();
+        return $value > 0 && $value <= Category::count();
     }
 
     /**
