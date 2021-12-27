@@ -65,21 +65,17 @@
 @endsection
 @section('content_section')
 <div class="container">
-  <div id="msg"></div>
+  <div class="post px-3">
     <div>
-        <h1 class="post-title">{{$post->title}}</h1>
-    </div>
-    <div>
-        Категория: {{$post->category->title}}
-    </div>
-    <div>
-        Автор поста: <a href=@if(Auth::check()) @if(Auth::user()->id==$post->author_id) {{route('profile.index')}} @else {{route('profile.show',$post->author_id)}} @endif @else {{route('profile.show',$post->author_id)}} @endif> {{$post->author->login}}</a>
+      <a href=@if(Auth::check()) @if(Auth::user()->id==$post->author_id) {{route('profile.index')}} @else {{route('profile.show',$post->author_id)}} @endif @else {{route('profile.show',$post->author_id)}} @endif> {{$post->author->login}}</a>
+      <span class="px-2">{{$post->created_at->format('d.m.Y H:m:s')}}</span>
+      <h1 class="post-title">{{$post->title}}</h1>
+      <a href={{route('posts.category', $post->category->id)}}>{{$post->category->title}}<a>
     </div>
     <br>
     @if(Auth::check())
     @if(Auth::user()->id == $post->author->id)
     <div><a href="{{route('posts.edit',$post->id)}}" class="btn btn-dark">Редактировать</a></div>
-    <br>
     <div>
         <form method="post" action="{{route('posts.delete',$post->id)}}">
         @csrf
@@ -89,9 +85,8 @@
         </div>
     @endif
     @endif
-    <br>
     <div class="post-content">
-        Текст поста: {!!$post->content!!}
+       {!!$post->content!!}
     </div>
     <div>
         <div class="comments">
@@ -140,5 +135,6 @@
           </div>
         </div>
     </div>
+</div>
 </div>
 @endsection
