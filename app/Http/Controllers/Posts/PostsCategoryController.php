@@ -11,7 +11,7 @@ class PostsCategoryController extends Controller
     public function __invoke($id)
     {
         $category = Category::find($id);
-        $posts = $category->posts;
+        $posts = $category->posts->reverse();
         $category = $category->title;
         return view('posts.category', compact('posts', 'category'));
     }
