@@ -61,12 +61,13 @@
 tinymce.init({
     selector: 'textarea',
     height: 500,
-    plugins: 'code table lists image media imagetools fullscreen',
+    plugins: 'code table lists image media imagetools fullscreen paste',
     toolbar: 'insertfile undo redo | formatselect| bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | image',
     language: 'ru',
     images_upload_url: '/images',
     image_title: true,
     relative_urls : false,
+    paste_as_text: true,
     remove_script_host : false,
      images_upload_handler: function (blobInfo, success, failure) {
         var xhr, formData;

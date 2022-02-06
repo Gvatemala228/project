@@ -71,12 +71,12 @@
       <a href=@if(Auth::check()) @if(Auth::user()->id==$post->author_id) {{route('profile.index')}} @else {{route('profile.show',$post->author_id)}} @endif @else {{route('profile.show',$post->author_id)}} @endif> {{$post->author->login}}</a>
       <span class="px-2">{{$post->created_at->format('d.m.Y H:m:s')}}</span>
       <h1 class="post-title">{{$post->title}}</h1>
-      <a href={{route('posts.category', $post->category->id)}}>{{$post->category->title}}<a>
+      <a href={{route('posts.category', $post->category->id)}}>{{$post->category->title}}</a>
     </div>
-    <br>
     @if(Auth::check())
     @if(Auth::user()->id == $post->author->id)
-    <div><a href="{{route('posts.edit',$post->id)}}" class="btn btn-dark">Редактировать</a></div>
+    <div class="btns-edit my-2">
+    <div><a href="{{route('posts.edit',$post->id)}}" class="btn btn-dark mb-2">Редактировать</a></div>
     <div>
         <form method="post" action="{{route('posts.delete',$post->id)}}">
         @csrf
@@ -84,6 +84,7 @@
             <input class="btn btn-danger" type="submit" value="Удалить">
         </form>
         </div>
+      </div>
     @endif
     @endif
     <div class="post-content">
