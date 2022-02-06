@@ -33,6 +33,7 @@
                   </div>\
               </li>`)
               $('.commentsCount').text(++commentsCount);
+              $('#addCommentForm')[0].reset();
       },
       error: function(data){
         alert('Ошибка!');
@@ -90,12 +91,11 @@
     </div>
     <div>
         <div class="comments">
-            <h3 class="title-comments">Комментарии (<span class="commentsCount">{{count($post->comments)}}</span>)</h3>
+            <h3 class="title-comments">Комментарии (<span class="commentsCount">{{count($post->comments)}}</span>):</h3>
             <div>
-            <h5>Оставить комментарий</h5>
             <form method="post" id="addCommentForm" action="{{route('comments.store', $post->id)}}">
                 @csrf
-                <textarea class="form-control w-50" name="comment" @guest readonly @endguest>@guest Только для авторизированных @endguest</textarea>
+                <textarea class="form-control w-50" placeholder="Добавить комментарий" name="comment" @guest readonly @endguest>@guest Только для авторизированных пользователей@endguest</textarea>
                 @auth<input type="submit" class="btn btn-primary my-3" id="submitComment" value="Добавить">@endauth
             </form>
             <ul class="media-list">
